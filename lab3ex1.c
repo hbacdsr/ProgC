@@ -4,30 +4,28 @@
 
 int main(){
 
-    int a, b, resposta, result;
+    int min, max, resposta, resultado;
+    min = 1;
+    max = 9;
 
-    a = 1;
-    b = 9;
-    resposta = 0;
-    result = 0;
-
-    while (resposta == result){
+    do {
         srand(time(NULL));
 
-        int randomNum1 = a + rand() % (b - a + 1);
-        int randomNum = a + rand() % (b - a + 1);
+        int randomNum1 = min + rand() % (max - min + 1);
+        int randomNum2 = min + rand() % (max - min + 1);
 
-        result =randomNum*randomNum1;
-        printf("Quanto e a multiplicação de %d por %d\n", randomNum, randomNum1);
+        resultado = randomNum1*randomNum2;
+        printf("Quanto e a multiplicação de %d por %d\n", randomNum1, randomNum2);
 
-        while (resposta != result){
+        while (resposta != resultado){
             scanf("%d",&resposta);
 
-            if (resposta == 0) exit(0);
-            else if (resposta == result) printf("resposta certa\n");
+            if (!resposta) exit(0);
+            else if (resposta == resultado) printf("resposta certa\n");
             else printf("resposta errada tenta outra vez\n");
         }
-    }
+
+    } while (resposta == resultado);
 
     return(0);
 }
